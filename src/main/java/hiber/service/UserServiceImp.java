@@ -30,9 +30,10 @@ public class UserServiceImp implements UserService {
    @Transactional
    @Override
    public User getUserByCar(String model, int series) {
-      String hql = "FROM User where car.model = :paramModel";
+      String hql = "FROM User where car.model = :paramModel AND car.series = :paramSeries";
       Query<?> query = userDao.getSessionFactory().getCurrentSession().createQuery(hql);
-      query.setParameter("paramModel", "Niva");
+      query.setParameter("paramModel", model);
+      query.setParameter("paramSeries", series);
       List<User> users = (List<User>) query.list();
       return users.get(0);
    }

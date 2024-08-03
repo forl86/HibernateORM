@@ -32,9 +32,10 @@ public class MainApp {
          }
          System.out.println();
       }
-      System.out.println("user with specified model is:");
       User u = userService.getUserByCar("Niva", 21214);
-      System.out.println(u.getLastName() + u.getFirstName());
+      System.out.println("user with specified model is:" + u.getLastName() + " " + u.getFirstName());
+      User v = userService.getUserByCar("Uaz", 469);
+      System.out.println("user with specified model is:" + v.getLastName() + " " + v.getFirstName());
 
       context.close();
    }
